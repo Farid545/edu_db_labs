@@ -138,6 +138,7 @@ SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ```
 - RESTfull сервіс для управління даними
+```
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -298,3 +299,4 @@ process.on('SIGINT', () => {
   app.emit('close');
   process.exit(0);
 });
+```
