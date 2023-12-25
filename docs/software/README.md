@@ -1,7 +1,9 @@
 # Реалізація інформаційного та програмного забезпечення
 
-В рамках проекту розробляється: 
+В рамках проекту розробляється:
+
 - SQL-скрипт для створення на початкового наповнення бази даних
+
 ```sql
 -- MySQL Workbench Forward Engineering
 
@@ -137,8 +139,10 @@ SET SQL_MODE=@OLD_SQL_MODE;
 SET FOREIGN_KEY_CHECKS=@OLD_FOREIGN_KEY_CHECKS;
 SET UNIQUE_CHECKS=@OLD_UNIQUE_CHECKS;
 ```
-- RESTfull сервіс для управління даними
-```
+
+## RESTfull сервіс для управління даними
+
+```js
 const express = require('express');
 const mysql = require('mysql2');
 const bodyParser = require('body-parser');
@@ -219,7 +223,7 @@ async function getAllItems() {
 
 async function getItemById(idContent) {
     const query = 'SELECT * FROM content WHERE idContent = ?';
-  
+
     try {
       const [rows] = await connection.promise().query(query, [idContent]);
       return rows[0]; // Return the first (and only) row
@@ -228,7 +232,7 @@ async function getItemById(idContent) {
       throw error;
     }
   }
-  
+
 app.post('/getbyid', async (req, res) => {
 const { idContent } = req.body;
 
